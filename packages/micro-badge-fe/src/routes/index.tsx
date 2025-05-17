@@ -1,5 +1,5 @@
-import { component$, Slot } from '@builder.io/qwik';
-import type { DocumentHead } from '@builder.io/qwik-city';
+import { component$ } from '@builder.io/qwik';
+import { Link, type DocumentHead } from '@builder.io/qwik-city';
 import { LuBadgeCheck } from '@qwikest/icons/lucide';
 // import { QWeb3Provider } from '~/integrations/react/web3-provider';
 
@@ -18,39 +18,17 @@ import { LuBadgeCheck } from '@qwikest/icons/lucide';
 // });
 export default component$(() => {
 	return (
-		<div
-			class="default w-screen h-screen flex flex-col bg-primary"
-			data-theme="defaultProject"
-		>
-			{/* navbar */}
-			<div class="navbar bg-base-100 px-4">
-				<div class="flex-1">
-					<a class="btn btn-ghost text-xl">daisyUI</a>
-				</div>
-				<div>
-					<button class="btn btn-primary gap-x-4">
-						<div class="avatar">
-							<div class="w-8 rounded-full">
-								<img
-									alt="Tailwind CSS Navbar component"
-									src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-								/>
-							</div>
-						</div>
-
-						<span>Connect</span>
-					</button>
-				</div>
-			</div>
-			{/* end navbar */}
-
+		<>
 			{/* body */}
 			<div class="flex-1 flex flex-col items-center justify-center">
 				<div class="flex flex-col gap-y-12">
 					{/* issue and claim badge */}
 					<div class="flex flex-row gap-x-25">
 						{/* issue a badge	 */}
-						<a class="btn btn-ghost h-auto w-auto p-0 m-0 hover:bg-transparent hover:border-transparent">
+						<Link
+							href="/issue-badge"
+							class="btn btn-ghost h-auto w-auto p-0 m-0 hover:bg-transparent hover:border-transparent"
+						>
 							<div
 								class="card bg-base-100 w-2xs shadow-sm aspect-square"
 								style={{ boxShadow: '10px 20px 0px 0px #181F2A;' }}
@@ -75,7 +53,7 @@ export default component$(() => {
 									</div>
 								</div>
 							</div>
-						</a>
+						</Link>
 
 						{/* create a badge	 */}
 						<a class="btn btn-ghost h-auto w-auto p-0 m-0 hover:bg-transparent hover:border-transparent">
@@ -140,10 +118,7 @@ export default component$(() => {
 				</div>
 			</div>
 			{/* end body */}
-
-			{/* footer */}
-			<div class="bg-accent w-full h-16"></div>
-		</div>
+		</>
 	);
 });
 
