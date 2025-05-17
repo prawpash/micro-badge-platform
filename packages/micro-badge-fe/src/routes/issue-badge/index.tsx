@@ -89,10 +89,10 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-	title: 'Home',
+	title: 'Issue a Badge',
 	meta: [
 		{
-			name: 'Home page for micro badge application',
+			name: 'Page for issuing a badge',
 			content:
 				'Application for issuing and claiming badges in decentralized way',
 		},
