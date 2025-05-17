@@ -18,7 +18,10 @@ export default component$(() => {
 						</div>
 					</Link>
 
-					<Link class="btn bg-base-100 ml-auto rounded-3xl text-xl font-normal py-4.5 px-10.5">
+					<Link
+						href="/issued-badges"
+						class="btn bg-base-100 ml-auto rounded-3xl text-xl font-normal py-4.5 px-10.5"
+					>
 						Issued Badges
 					</Link>
 				</div>
