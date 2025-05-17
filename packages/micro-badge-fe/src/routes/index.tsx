@@ -90,7 +90,10 @@ export default component$(() => {
 
 					{/* my badges	 */}
 					<div>
-						<a class="btn btn-ghost h-auto w-full p-0 m-0 hover:bg-transparent hover:border-transparent">
+						<Link
+							href="/collected-badges"
+							class="btn btn-ghost h-auto w-full p-0 m-0 hover:bg-transparent hover:border-transparent"
+						>
 							<div
 								class="card bg-base-100 w-full shadow-sm aspect-3/1"
 								style={{ boxShadow: '10px 20px 0px 0px #181F2A;' }}
@@ -111,11 +114,11 @@ export default component$(() => {
 												}}
 											/>
 										</div>
-										<h1 class="text-4xl font-semibold">Issue a Badge</h1>
+										<h1 class="text-4xl font-semibold">Collected Badges</h1>
 									</div>
 								</div>
 							</div>
-						</a>
+						</Link>
 					</div>
 					{/* end my badges	 */}
 				</div>
