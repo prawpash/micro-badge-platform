@@ -56,7 +56,10 @@ export default component$(() => {
 						</Link>
 
 						{/* create a badge	 */}
-						<a class="btn btn-ghost h-auto w-auto p-0 m-0 hover:bg-transparent hover:border-transparent">
+						<Link
+							href="/claim-badge"
+							class="btn btn-ghost h-auto w-auto p-0 m-0 hover:bg-transparent hover:border-transparent"
+						>
 							<div
 								class="card bg-base-100 w-2xs shadow-sm aspect-square"
 								style={{ boxShadow: '10px 20px 0px 0px #181F2A;' }}
@@ -77,11 +80,11 @@ export default component$(() => {
 												}}
 											/>
 										</div>
-										<h1 class="text-4xl font-semibold">Issue a Badge</h1>
+										<h1 class="text-4xl font-semibold">Claim a Badge</h1>
 									</div>
 								</div>
 							</div>
-						</a>
+						</Link>
 					</div>
 					{/* end issue and claim badge */}
 
