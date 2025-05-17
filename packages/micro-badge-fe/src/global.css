@@ -1,2 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 @import "tailwindcss";
+@theme {
+	--font-roboto: "Roboto", sans-serif;
+}
+
 @plugin "daisyui";
+
+@plugin "daisyui/theme" {
+	name: "defaultProject";
+	default: false;
+	prefersdark: false;
+	color-scheme: "light";
+	--color-base-100: #dce5ef;
+	--color-base-200: #6d7b90;
+	--color-base-300: #d77a61;
+	--color-base-content: #000000;
+	--color-primary: #1f2937;
+	--color-primary-content: oklch(98% 0.016 73.684);
+	--color-secondary: #001514;
+	--color-secondary-content: oklch(98% 0.026 102.212);
+	--color-accent: #374151;
+	--color-accent-content: oklch(97% 0.021 166.113);
+	--color-neutral: #88292f;
+	--color-neutral-content: oklch(97% 0.013 17.38);
+	--color-info: #061a40;
+	--color-info-content: oklch(97% 0.014 254.604);
+	--color-success: #77ad78;
+	--color-success-content: #1f2937;
+	--color-warning: #fff07c;
+	--color-warning-content: #1f2937;
+	--color-error: #b3001b;
+	--color-error-content: oklch(96% 0.015 12.422);
+	--radius-selector: 0.25rem;
+	--radius-field: 0.5rem;
+	--radius-box: 1rem;
+	--size-selector: 0.25rem;
+	--size-field: 0.25rem;
+	--border: 2px;
+	--depth: 0;
+	--noise: 0;
+}
+
+body {
+	font-family: var(--font-roboto);
+}
