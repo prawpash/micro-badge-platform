@@ -1,27 +1,159 @@
 import { component$, Slot } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
-import { QWeb3Provider } from '~/integrations/react/web3-provider';
+import { LuBadgeCheck } from '@qwikest/icons/lucide';
+// import { QWeb3Provider } from '~/integrations/react/web3-provider';
 
+// export default component$(() => {
+// 	return (
+// 		<div class="w-screen h-screen flex flex-col items-center justify-center">
+// 			<div class="join">
+// 				<button class="btn join-item w-50 h-50">Issue Badge</button>
+// 				<button class="btn join-item w-50 h-50">Claim Badge</button>
+// 			</div>
+// 			<div>
+// 				<QWeb3Provider></QWeb3Provider>
+// 			</div>
+// 		</div>
+// 	);
+// });
 export default component$(() => {
 	return (
-		<div class="w-screen h-screen flex flex-col items-center justify-center">
-			<div class="join">
-				<button class="btn join-item w-50 h-50">Issue Badge</button>
-				<button class="btn join-item w-50 h-50">Claim Badge</button>
+		<div
+			class="default w-screen h-screen flex flex-col bg-primary"
+			data-theme="defaultProject"
+		>
+			{/* navbar */}
+			<div class="navbar bg-base-100 px-4">
+				<div class="flex-1">
+					<a class="btn btn-ghost text-xl">daisyUI</a>
+				</div>
+				<div>
+					<button class="btn btn-primary gap-x-4">
+						<div class="avatar">
+							<div class="w-8 rounded-full">
+								<img
+									alt="Tailwind CSS Navbar component"
+									src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+								/>
+							</div>
+						</div>
+
+						<span>Connect</span>
+					</button>
+				</div>
 			</div>
-			<div>
-				<QWeb3Provider></QWeb3Provider>
+			{/* end navbar */}
+
+			{/* body */}
+			<div class="flex-1 flex flex-col items-center justify-center">
+				<div class="flex flex-col gap-y-12">
+					{/* issue and claim badge */}
+					<div class="flex flex-row gap-x-25">
+						{/* issue a badge	 */}
+						<a class="btn btn-ghost h-auto w-auto p-0 m-0 hover:bg-transparent hover:border-transparent">
+							<div
+								class="card bg-base-100 w-2xs shadow-sm aspect-square"
+								style={{ boxShadow: '10px 20px 0px 0px #181F2A;' }}
+							>
+								<div class="card-body flex flex-col items-center justify-center">
+									<div class="flex flex-col items-center gap-y-2">
+										<div
+											style={{
+												fontSize: '70px',
+												color: 'var(--color-primary)',
+											}}
+										>
+											<LuBadgeCheck
+												style={{
+													fill: 'var(--color-primary)',
+													stroke: 'var(--color-base-100)',
+													strokeWidth: '1px',
+												}}
+											/>
+										</div>
+										<h1 class="text-4xl font-semibold">Issue a Badge</h1>
+									</div>
+								</div>
+							</div>
+						</a>
+
+						{/* create a badge	 */}
+						<a class="btn btn-ghost h-auto w-auto p-0 m-0 hover:bg-transparent hover:border-transparent">
+							<div
+								class="card bg-base-100 w-2xs shadow-sm aspect-square"
+								style={{ boxShadow: '10px 20px 0px 0px #181F2A;' }}
+							>
+								<div class="card-body flex flex-col items-center justify-center">
+									<div class="flex flex-col items-center gap-y-2">
+										<div
+											style={{
+												fontSize: '70px',
+												color: 'var(--color-primary)',
+											}}
+										>
+											<LuBadgeCheck
+												style={{
+													fill: 'var(--color-primary)',
+													stroke: 'var(--color-base-100)',
+													strokeWidth: '1px',
+												}}
+											/>
+										</div>
+										<h1 class="text-4xl font-semibold">Issue a Badge</h1>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+					{/* end issue and claim badge */}
+
+					{/* my badges	 */}
+					<div>
+						<a class="btn btn-ghost h-auto w-full p-0 m-0 hover:bg-transparent hover:border-transparent">
+							<div
+								class="card bg-base-100 w-full shadow-sm aspect-3/1"
+								style={{ boxShadow: '10px 20px 0px 0px #181F2A;' }}
+							>
+								<div class="card-body flex flex-col items-center justify-center">
+									<div class="flex flex-col items-center gap-y-2">
+										<div
+											style={{
+												fontSize: '70px',
+												color: 'var(--color-primary)',
+											}}
+										>
+											<LuBadgeCheck
+												style={{
+													fill: 'var(--color-primary)',
+													stroke: 'var(--color-base-100)',
+													strokeWidth: '1px',
+												}}
+											/>
+										</div>
+										<h1 class="text-4xl font-semibold">Issue a Badge</h1>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+					{/* end my badges	 */}
+				</div>
 			</div>
+			{/* end body */}
+
+			{/* footer */}
+			<div class="bg-accent w-full h-16"></div>
 		</div>
 	);
 });
 
 export const head: DocumentHead = {
-	title: 'Welcome to Qwik',
+	title: 'Home',
 	meta: [
 		{
-			name: 'description',
-			content: 'Qwik site description',
+			name: 'Home page for micro badge application',
+			content:
+				'Application for issuing and claiming badges in decentralized way',
 		},
 	],
 };
