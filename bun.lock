@@ -4,6 +4,19 @@
     "": {
       "name": "micro-badge",
     },
+    "packages/micro-badge-be": {
+      "name": "micro-badge-be",
+      "dependencies": {
+        "@trpc/client": "^11.1.2",
+        "@trpc/server": "^11.1.2",
+      },
+      "devDependencies": {
+        "@types/bun": "latest",
+      },
+      "peerDependencies": {
+        "typescript": "^5",
+      },
+    },
     "packages/micro-badge-contract": {
       "name": "micro-badge-contract",
       "dependencies": {
@@ -658,6 +671,10 @@
     "@tanstack/query-core": ["@tanstack/query-core@5.76.0", "", {}, "sha512-FN375hb8ctzfNAlex5gHI6+WDXTNpe0nbxp/d2YJtnP+IBM6OUm7zcaoCW6T63BawGOYZBbKC0iPvr41TteNVg=="],
 
     "@tanstack/react-query": ["@tanstack/react-query@5.76.1", "", { "dependencies": { "@tanstack/query-core": "5.76.0" }, "peerDependencies": { "react": "^18 || ^19" } }, "sha512-YxdLZVGN4QkT5YT1HKZQWiIlcgauIXEIsMOTSjvyD5wLYK8YVvKZUPAysMqossFJJfDpJW3pFn7WNZuPOqq+fw=="],
+
+    "@trpc/client": ["@trpc/client@11.1.2", "", { "peerDependencies": { "@trpc/server": "11.1.2", "typescript": ">=5.7.2" } }, "sha512-RpifJOAv+ql9gF3oafa3dLCF01AzWu2DzejvehAPG2IlwHxopKoYXaImJ8zPwRkZokuWiKz5v65HjElmi8TlrQ=="],
+
+    "@trpc/server": ["@trpc/server@11.1.2", "", { "peerDependencies": { "typescript": ">=5.7.2" } }, "sha512-Oi9zWHG0ZDkbDo4sYkduoV7q4sIe6UwjrRLC91vNMYQK+PVgpbTCmK1laRwewAGu0zaayqcGDosANjceOIC3GA=="],
 
     "@trysound/sax": ["@trysound/sax@0.2.0", "", {}, "sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA=="],
 
@@ -1810,6 +1827,8 @@
     "metro-transform-plugins": ["metro-transform-plugins@0.82.3", "", { "dependencies": { "@babel/core": "^7.25.2", "@babel/generator": "^7.25.0", "@babel/template": "^7.25.0", "@babel/traverse": "^7.25.3", "flow-enums-runtime": "^0.0.6", "nullthrows": "^1.1.1" } }, "sha512-s1gVrkhczwMbxZLRSLCJ16K/4Sqx5IhO4sWlL6j0jlIEs1/Drn3JrkUUdQTtgmJS8SBpxmmB66cw7wnz751dVg=="],
 
     "metro-transform-worker": ["metro-transform-worker@0.82.3", "", { "dependencies": { "@babel/core": "^7.25.2", "@babel/generator": "^7.25.0", "@babel/parser": "^7.25.3", "@babel/types": "^7.25.2", "flow-enums-runtime": "^0.0.6", "metro": "0.82.3", "metro-babel-transformer": "0.82.3", "metro-cache": "0.82.3", "metro-cache-key": "0.82.3", "metro-minify-terser": "0.82.3", "metro-source-map": "0.82.3", "metro-transform-plugins": "0.82.3", "nullthrows": "^1.1.1" } }, "sha512-z5Y7nYlSlLAEhjFi73uEJh69G5IC6HFZmXFcrxnY+JNlsjT2r0GgsDF4WaQGtarAIt5NP88V8983/PedwNfEcw=="],
+
+    "micro-badge-be": ["micro-badge-be@workspace:packages/micro-badge-be"],
 
     "micro-badge-contract": ["micro-badge-contract@workspace:packages/micro-badge-contract"],
 
