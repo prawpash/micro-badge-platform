@@ -1,8 +1,67 @@
-import { component$ } from '@builder.io/qwik';
-import { Link, type DocumentHead } from '@builder.io/qwik-city';
+import { $, component$, useSignal } from '@builder.io/qwik';
+import { type DocumentHead, Link } from '@builder.io/qwik-city';
 import { LuChevronLeft, LuPlusCircle } from '@qwikest/icons/lucide';
+import { createPublicClient, createWalletClient, custom, http } from 'viem';
+import BadgeSBT from '@contract/artifacts/contracts/BadgeSBT.sol/BadgeSBT.json';
+import BadgeSBTData from '../../../../micro-badge-contract/ignition/deployments/chain-31337/deployed_addresses.json';
+import { hardhat } from 'viem/chains';
+import 'viem/window';
+
+const contractAddress = BadgeSBTData['BadgeSBTModule#BadgeSBT'];
 
 export default component$(() => {
+	const isIssueBadgeLoading = useSignal(false);
+
+	const issueBadge = $(async () => {
+		try {
+			if (!window.ethereum) {
+				alert('Please install MetaMask!');
+				return;
+			}
+
+			isIssueBadgeLoading.value = true;
+
+			const publicClient = createPublicClient({
+				chain: hardhat,
+				transport: http(),
+			});
+
+			// const templatesCount = await publicClient.readContract({
+			// 	address: `0x5fbdb2315678afecb367f032d93f642f64180aa3`,
+			// 	abi: BadgeSBT.abi,
+			// 	functionName: 'getTemplateCount',
+			// });
+			//
+			// console.log(templatesCount);
+
+			const walletClient = createWalletClient({
+				chain: hardhat,
+				transport: custom(window.ethereum),
+			});
+
+			const [account] = await walletClient.getAddresses();
+
+			const { request } = await publicClient.simulateContract({
+				account,
+				// @ts-ignore
+				address: contractAddress,
+				abi: BadgeSBT.abi,
+				functionName: 'createBadge',
+				args: ['https://viem.sh/docs/ethers-migration#call'],
+			});
+
+			const txHash = await walletClient.writeContract(request);
+
+			console.log(`Transaction sent: ${txHash}`);
+
+			await publicClient.waitForTransactionReceipt({ hash: txHash });
+		} catch (error) {
+			alert(`Error: ${error instanceof Error ? error.message : String(error)}`);
+		} finally {
+			isIssueBadgeLoading.value = false;
+		}
+	});
+
 	return (
 		<>
 			{/* body */}
@@ -78,8 +137,16 @@ export default component$(() => {
 					</div>
 
 					<div class="flex justify-center">
-						<button class="btn bg-base-100 w-2xl h-13 mx-auto rounded-3xl">
-							Upload
+						<button
+							onClick$={issueBadge}
+							class="btn bg-base-100 w-2xl h-13 mx-auto rounded-3xl"
+							disabled={isIssueBadgeLoading.value}
+						>
+							{isIssueBadgeLoading.value ? (
+								<span class="loading loading-spinner loading-lg"></span>
+							) : (
+								'Issue a Badge'
+							)}
 						</button>
 					</div>
 				</div>
